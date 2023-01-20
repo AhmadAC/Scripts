@@ -3,7 +3,7 @@ $ cat .gitignore
 # !/Python Scripts/xxxxxxxx.py
 
 #Folders
-/Python Scripts/Ignore/
+/Python Scripts/Ignore - Not Uploaded/
 /.git/
 #Files
 /1.0 - Pull Github Repo.bat
