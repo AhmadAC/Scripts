@@ -17,7 +17,7 @@ horse
 ```
 
 Requirements:
-Python3, pyperclip
+Python3, Pyperclip
 
 How to run:<br />
 After installing requirements, copy a list as shown above, and run the bat file. After, paste into a word processor. Done!
@@ -49,7 +49,7 @@ pip install sgmllib3k
 "if there's a "base64" error, uninstall and reinstall feedparser, should work then
 
 Requirements:<br />
-Python3, Google unblocked (if blocked, use a VPN)
+Python3, Access to Google systems - if blocked, use a VPN.
 
 # Combine_Pics2PDF<br /> 
 

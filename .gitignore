@@ -5,6 +5,7 @@ $ cat .gitignore
 #Folders
 /Python Scripts/Ignore - Not Uploaded/
 /Python Scripts/pw.py
+/Python Scripts/__pycache__/
 /.git/
 #Files
 /Pull Github Repo.bat
