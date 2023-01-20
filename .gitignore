@@ -1,10 +1,11 @@
 $ cat .gitignore
-# exclude everything except ... !/
-# !/Python Scripts/xxxxxxxx.py
+#ignore folder: /folder/
+#ignore file /FILE.FILE
 
 #Folders
 /Python Scripts/Ignore - Not Uploaded/
+/Python Scripts/pw.py
 /.git/
 #Files
-/1.0 - Pull Github Repo.bat
-/1.0 - Push Github Repo.bat
+/Pull Github Repo.bat
+/Push Github Repo.bat
