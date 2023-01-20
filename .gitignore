@@ -1,6 +1,6 @@
 $ cat .gitignore
 #ignore folder: /folder/
-#ignore file /FILE.FILE
+#ignore file: /FILE.FILE
 
 #Folders
 /Python Scripts/Ignore - Not Uploaded/
