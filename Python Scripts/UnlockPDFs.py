@@ -7,7 +7,7 @@ import pyperclip
 
 
 if pyperclip.paste():
-    directory = pyperclip.paste()
+    directory = os.path.join(pyperclip.paste().strip('"'),'')
 else:
     directory = os.getcwd()
 
