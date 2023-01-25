@@ -34,4 +34,10 @@ message_label.pack()
 shuffle_button = tk.Button(root, text='Shuffle PDF', command=shuffle_pdf)
 shuffle_button.pack()
 
+#bind Enter key with button
+root.bind('<Return>', lambda event: shuffle_button.invoke())
+
+#bind Esc key with closing the window
+root.bind('<Escape>', lambda event: root.destroy())
+
 root.mainloop()
