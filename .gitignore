@@ -4,9 +4,10 @@ $ cat .gitignore
 
 #Folders
 /Python Scripts/Ignore - Not Uploaded/
-/Python Scripts/pw.py
 /Python Scripts/__pycache__/
 /.git/
 #Files
+/Python Scripts/pw.py
+/Python Scripts/tempCodeRunnerFile.py
 /Pull Github Repo.bat
 /Push Github Repo.bat
