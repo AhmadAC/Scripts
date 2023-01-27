@@ -1,8 +1,8 @@
-import pathlib
+import os
 import pyperclip
 import zipfile
 
-path = pathlib.Path(pyperclip.paste())
+path = os.path.join(pyperclip.paste().strip('"'),'')
 
 for file in path.iterdir():
         if file.suffix == ".zip":

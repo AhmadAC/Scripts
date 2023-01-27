@@ -1,4 +1,5 @@
-#pip install python-pptx==0.6.18
+# pip install python-pptx==0.6.18 pyperclip
+# Not perfect, the pictures don't fit the entire slide size.
 import os
 import pyperclip
 from pptx import Presentation
@@ -12,13 +13,13 @@ folder_path = os.path.join(pyperclip.paste().strip('"'),'')
 prs = Presentation()
 
 # Iterate through all the files in the folder
-allowed_extensions = [".jpg", ".png"]
+allowed_extensions = [".jpg", ".png", ".jpeg"]
 for file_name in os.listdir(folder_path):
     if file_name.endswith(tuple(allowed_extensions)):
         # Add the image to the PowerPoint file
-        #replace the number 6 with any other index of the slide_layouts list to use a different layout for your slide.
+        # Replace the number 6 with any other index of the slide_layouts list to use a different layout for your slide.
         slide = prs.slides.add_slide(prs.slide_layouts[6])
-        #set the position of the image
+        # set the position of the image
         left = Inches(0)
         top = Inches(0)
         pic = slide.shapes.add_picture(os.path.join(folder_path, file_name), left, top)
