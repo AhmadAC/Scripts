@@ -1,3 +1,12 @@
+- 👋 Hi, I’m Ahmad Cooper
+- 👀 I’m interested in Teaching ESL, VBA, and Python.
+- 🌱 I’m currently learning computational thinking.
+- 📫 Reach me on GitHub.
+
+
+![](https://komarev.com/ghpvc/?username=AhmadAC&color=blueviolet)
+
+
 # Scripts
 
 All scripts in this repository comes "as is", with no warranty. I'm not responsible if you use this code. The code uploaded here is for learning purposes.
