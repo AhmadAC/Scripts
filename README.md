@@ -60,7 +60,7 @@ pip install sgmllib3k
 Requirements:<br />
 Python3, Access to Google systems - if blocked, use a VPN.
 
-# Combine_Pics2PDF<br /> 
+# Combine Pics2PDF<br /> 
 
 To run this script, please provide a directory path as a command line argument, copy the path to your clipboard, or put the pictures to merge in the same folder as the script.<br /> 
         
