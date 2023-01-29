@@ -11,7 +11,7 @@
 
 All scripts in this repository comes "as is", with no warranty. I'm not responsible if you use this code. The code uploaded here is for learning purposes.
 
-# CSV_to_List
+# CSV to List
 
 
 This converts a CSV list from clipboard into a word list with new lines. 
