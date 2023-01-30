@@ -1,8 +1,17 @@
+- 👋 Hi, I’m Ahmad Cooper
+- 👀 I’m interested in Teaching ESL, VBA, and Python.
+- 🌱 I’m currently learning computational thinking.
+- 📫 Reach me on GitHub.
+
+
+![](https://komarev.com/ghpvc/?username=AhmadAC&color=blueviolet)
+
+
 # Scripts
 
 All scripts in this repository comes "as is", with no warranty. I'm not responsible if you use this code. The code uploaded here is for learning purposes.
 
-# CSV_to_List
+# CSV to List
 
 
 This converts a CSV list from clipboard into a word list with new lines. 
@@ -51,7 +60,7 @@ pip install sgmllib3k
 Requirements:<br />
 Python3, Access to Google systems - if blocked, use a VPN.
 
-# Combine_Pics2PDF<br /> 
+# Combine Pics2PDF<br /> 
 
 To run this script, please provide a directory path as a command line argument, copy the path to your clipboard, or put the pictures to merge in the same folder as the script.<br /> 
         
