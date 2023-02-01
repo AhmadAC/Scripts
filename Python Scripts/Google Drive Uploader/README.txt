@@ -1,7 +1,7 @@
 Requirements:
 
-Enable GoogleDrive API: https://console.cloud.google.com/apis/library/drive.googleapis.com?project=ecstatic-doodad-358806
-Setup OAuth 2.0 Client IDs: https://console.cloud.google.com/apis/credentials?project=ecstatic-doodad-358806
+Enable GoogleDrive API: https://console.cloud.google.com/apis/library/drive.googleapis.com?project=
+Setup OAuth 2.0 Client IDs: https://console.cloud.google.com/apis/credentials?project=
 
 
 Download the following .json files, and rename them to this:
