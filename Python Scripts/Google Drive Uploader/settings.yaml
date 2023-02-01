@@ -1,5 +1,5 @@
 # Replace '<PUT INFO HERE>' with the credentials from here: 
-# https://console.cloud.google.com/apis/credentials?project=ecstatic-doodad-358806
+# https://console.cloud.google.com/apis/credentials?project=
 client_config_backend: file
 client_config:
   client_id: <PUT INFO HERE>
