@@ -1,3 +1,5 @@
+# Written by Ahmad Cooper
+
 import os
 import sys
 import pyperclip

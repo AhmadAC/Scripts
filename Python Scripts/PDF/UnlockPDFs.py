@@ -1,6 +1,7 @@
-#If you have SECURED your PDF from editing and forget your password. This may help to unlock it.
-#For educational purposes only. Use at your own risk.
-#Copy the path to the folder or put the script in the folder with the PDFs
+# Written by Ahmad Cooper
+# If you have SECURED your PDF from editing and forget your password. This may help to unlock it.
+# For educational purposes only. Use at your own risk.
+# Copy the path to the folder or put the script in the folder with the PDFs
 import os
 import PyPDF2
 import pyperclip

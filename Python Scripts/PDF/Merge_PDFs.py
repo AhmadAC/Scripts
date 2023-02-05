@@ -1,3 +1,4 @@
+# Written by Ahmad Cooper
 import pyperclip
 import os
 from PyPDF2 import PdfFileMerger

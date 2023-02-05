@@ -1,3 +1,4 @@
+# Written by Ahmad Cooper
 import os
 import PyPDF2
 import pyperclip

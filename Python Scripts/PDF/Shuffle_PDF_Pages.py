@@ -1,3 +1,5 @@
+# Written by Ahmad Cooper
+
 import tkinter as tk
 import pyperclip
 import PyPDF2
