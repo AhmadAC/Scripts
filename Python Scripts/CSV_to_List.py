@@ -1,13 +1,12 @@
+# Written by Ahmad Cooper
+# pip install pyperclip ; pyperclip doesn't work on Android
 import pyperclip
-#create an empty list to put values in
-final = [] 
-#set clipboard as list
-list = pyperclip.paste()
-#split clipboard by ',' , to get each word
-final = list.split(',')
-#clean words just incase user copied: 1,2 ,3  ,4 etc
-final = [_.strip(' ') for _ in final]
-#join all words into a single string, each word on a new line
-final = '\n'.join(final)
-#copy the words to clipboard
+
+# Retrieve the contents of the clipboard and strip new lines
+clipboard = pyperclip.paste().strip("\n")
+
+# List comprehension to join the list of words into a single string separated by newline characters
+final = '\n'.join([word.strip() for word in clipboard.split(",")])
+
+# Copy the final string to the clipboard
 pyperclip.copy(final)
