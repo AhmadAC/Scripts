@@ -1,0 +1,136 @@
+<!-- Written by Ahmad Cooper -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #2b2b2b;
+        color: #d9d9d9;
+      }
+      input[type="text"], button {
+        background-color: #404040;
+        color: #d9d9d9;
+        border: 1px solid #d9d9d9;
+      }
+      .remove-btn {
+        background-color: #b01919;
+      }
+      #list {
+        text-align: center;
+        margin: auto;
+        width: 50%;
+      }
+      input[type="text"] {
+        padding: 5px;
+        width: 60%;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 5px 10px;
+        margin-right: 20px;
+      }
+      .todo-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .todo-item input[type="checkbox"] {
+        margin-right: 20px;
+      }
+      .remove-btn {
+        padding: 5px 10px;
+        margin-left: 20px;
+      }
+      .empty {
+        font-style: italic;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="list">
+      <input id="input" type="text">
+      <button id="addBtn">Add</button>
+      <ul id="todolist"></ul>
+      <p class="empty" id="empty-message">No items on the list</p>
+    </div>
+    <script>
+      const input = document.querySelector("#input");
+      const addBtn = document.querySelector("#addBtn");
+      const todolist = document.querySelector("#todolist");
+      const emptyMessage = document.querySelector("#empty-message");
+      
+      let items = [];
+      
+      // Load items from local storage
+      const loadItems = function() {
+        const storedItems = JSON.parse(localStorage.getItem("todolist")) || [];
+        items = storedItems;
+        renderList();
+      };
+      
+      // Save items to local storage
+      const saveItems = function() {
+        localStorage.setItem("todolist", JSON.stringify(items));
+      };
+      
+      // Render the list of items
+      const renderList = function() {
+        let listHTML = "";
+        for (let i = 0; i < items.length; i++) {
+          const item = items[i];
+          listHTML += `
+            <li class="todo-item">
+              <input type="checkbox" id="item-${i}" ${item.completed ? "checked" : ""}>
+              <label for="item-${i}">${item.text}</label>
+              <button class="remove-btn" data-index="${i}">Remove</button>
+              </li>
+              `;
+              }
+              todolist.innerHTML = listHTML;
+              emptyMessage.style.display = items.length > 0 ? "none" : "block";
+              const removeButtons = document.querySelectorAll(".remove-btn");
+              for (let i = 0; i < removeButtons.length; i++) {
+                removeButtons[i].addEventListener("click", function() {
+                  const index = this.getAttribute("data-index");
+                              items.splice(index, 1);
+                  saveItems();
+          
+                  
+                                          saveItems();
+                  renderList();
+                });
+              }
+              
+              const checkboxes = document.querySelectorAll("input[type='checkbox']");
+              for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].addEventListener("change", function() {
+                  const index = this.getAttribute("id").split("-")[1];
+                  items[index].completed = this.checked;
+                  saveItems();
+                });
+              }
+            };
+            
+            addBtn.addEventListener("click", function() {
+              const text = input.value.trim();
+              if (text === "") {
+                return;
+              }
+              items.push({ text, completed: false });
+              saveItems();
+              input.value = "";
+              renderList();
+            });
+            
+            input.addEventListener("keyup", function(event) {
+              if (event.keyCode === 13) {
+                addBtn.click();
+              }
+            });
+            
+            loadItems();
+          </script>
+    </body>
+</html>          

@@ -1,0 +1,197 @@
+<!-- Written by Ahmad Cooper -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>List</title>
+    <style>
+      body {
+        background-color: #2b2b2b;
+        color: #d9d9d9;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+      }
+      input[type="text"] {
+        text-align: center;
+        margin: 20px auto;
+        width: 80%;
+        padding: 10px;
+      }
+      button {
+        background-color: #404040;
+        color: #d9d9d9;
+        border: 1px solid #d9d9d9;
+        margin: 20px auto;
+        padding: 10px 20px;
+        width: 80%;
+        display: block;
+      }
+      .remove-btn {
+        background-color: #b01919;
+        padding: 5px 10px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .todo-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        width: 80%;
+        margin: 0 auto;
+      }
+      .empty {
+        font-style: italic;
+        margin-top: 200px;
+      }
+      #resultList {
+        list-style-type: none;
+        padding: 0;
+        text-align: left;
+        width: 80%;
+        margin: 20px auto;
+      }
+      button:hover {
+        background-color: #d36b09;
+        cursor: pointer;
+      }
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+      }
+      @media (min-width: 600px) {
+        input[type="checkbox"] {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      @media screen and (max-width: 896px) {
+  .todo-item span {
+    width: calc(100% - 80px);
+    display: inline-block;
+    text-align: left;
+  }
+  input[type="checkbox"],
+  .remove-btn {
+    display: inline-block;
+  }
+}
+
+}
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox, .remove-btn, .todo-item {
+  flex: 1;
+}
+     .container {
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;
+      }
+      .checkbox, .remove-btn, .todo-item {
+        width: 33.33%;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <textarea id="inputText"></textarea>
+    <button id="submitBtn">Submit</button>
+    <button id="clearBtn">Clear</button>
+    <button id="exportBtn">Export</button>
+    <p id="errorMessage" style="color:red;display:none;"></p>
+    <ol id="resultList"></ol>
+  </body>
+  <script>
+    let counter = 1;
+const clearBtn = document.querySelector("#clearBtn");
+const errorMessage = document.querySelector("#errorMessage");
+const inputText = document.querySelector("#inputText");
+const submitBtn = document.querySelector("#submitBtn");
+const resultList = document.querySelector("#resultList");
+const exportBtn = document.querySelector("#exportBtn");
+
+// Restore input and list from local storage on page load
+inputText.value = localStorage.getItem("lines") || "";
+resultList.innerHTML = localStorage.getItem("list") || "";
+
+submitBtn.addEventListener("click", () => {
+  const lines = inputText.value.split("\n").filter(Boolean);
+  for (const line of lines) {
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+      <input type="checkbox">
+      <button class="remove-btn" style="margin-top:10px;">Remove</button>
+      <span>${counter}. ${line}</span>
+      `;
+      resultList.appendChild(li);
+      counter++;
+      }
+      localStorage.setItem("lines", inputText.value + '\n' + localStorage.getItem("lines"));
+      localStorage.setItem("list", resultList.innerHTML);
+      inputText.value = "";
+      });
+      
+// Add event listener to the resultList for clicking on remove button
+resultList.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-btn")) {
+    const li = event.target.parentElement;
+    resultList.removeChild(li);
+    localStorage.setItem("list", resultList.innerHTML);
+    }
+    });
+    
+    // Add event listener to the clear button
+    clearBtn.addEventListener("click", () => {
+    localStorage.clear();
+    inputText.value = "";
+    resultList.innerHTML = "";
+    counter = 1;
+    });
+    
+    // Add event listener to the export button
+    exportBtn.addEventListener("click", () => {
+    let checkedTodoItems = [];
+    const todoItems = document.querySelectorAll("input[type='checkbox']:checked");
+    for (const item of todoItems) {
+    const todoItem = item.parentElement.textContent.trim().split(" ").slice(2).join(" ");
+    checkedTodoItems.push(todoItem);
+    }
+    
+    if (checkedTodoItems.length === 0) {
+    errorMessage.innerHTML = "No items to export";
+    errorMessage.style.display = "block";
+    return;
+    }
+    
+    const text = checkedTodoItems.join("\n");
+    const data = new Blob([text], { type: "text/plain" });
+    const file = window.URL.createObjectURL(data);
+    
+    const exportBtn = document.createElement("a");
+    exportBtn.download = "todo-items.txt";
+    exportBtn.href = file;
+    exportBtn.style.display = "none";
+    document.body.appendChild(exportBtn);
+    exportBtn.click();
+    document.body.removeChild(exportBtn);
+    });
+
+    // Add event listener to the inputText to allow submitting with <enter>
+    inputText.addEventListener("keydown", (event) => {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        submitBtn.click();
+      }
+    });
+    </script>
+    
+    </html>
+    
