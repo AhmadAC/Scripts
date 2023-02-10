@@ -1,11 +1,12 @@
-# Writren by Ahmad Cooper
-# use a source and template doc, put it in the same folder as the script
-# use one table with values in the source doc
-# put keywords in template doc with "<" and ">" 
-
 import concurrent.futures
 from docx import Document
+import copy
+import os
 
+# Very important
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# If you don't change the directory, you can't run the script properly from a .bat file
+os.chdir(script_dir)
 # Load the source Word document
 source_doc = Document("source.docx")
 table = source_doc.tables[0]
@@ -22,16 +23,15 @@ def process_row(row, header_names, template):
         data[header_names[i]] = cell.text
 
     # Create a new document based on the template
-    doc = Document()
-    for paragraph in template.paragraphs:
-        new_paragraph = doc.add_paragraph()
+    doc = copy.deepcopy(template)
+    for paragraph in doc.paragraphs:
         for run in paragraph.runs:
             new_run_text = run.text
             for header_name in header_names:
                 placeholder = "<" + header_name + ">"
                 if placeholder in new_run_text:
                     new_run_text = new_run_text.replace(placeholder, str(data.get(header_name, "")))
-            new_paragraph.add_run(new_run_text)
+            run.text = new_run_text
 
     # Save the output file
     x = f"output_{row.cells[0].text}.docx"
