@@ -8,7 +8,7 @@ sys.argv
 clipboard = pyperclip.paste().strip("\n")
 
 # List comprehension to join the list of words into a single string separated by newline characters
-# type any argument after calling the file and it'll make List to CSV
+# type any argument after calling the file and it'll make List to CSV i.e. "python CSV_to_List 1" or if using a bat file "list 1"
 if len(sys.argv) >1:
     final = ', '.join([word.strip() for word in clipboard.split("\n")])
 else:
