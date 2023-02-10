@@ -5,6 +5,7 @@ $ cat .gitignore
 #Folders
 /Python Scripts/Ignore - Not Uploaded/
 /Python Scripts/__pycache__/
+/HTML Scripts/Ignore/
 /.git/
 #Files
 /Python Scripts/pw.py
