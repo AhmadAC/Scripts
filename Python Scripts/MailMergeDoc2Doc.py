@@ -33,10 +33,15 @@ def process_row(row, header_names, template):
                     new_run_text = new_run_text.replace(placeholder, str(data.get(header_name, "")))
             run.text = new_run_text
 
-    # Save the output file
-    x = f"output_{row.cells[0].text}.docx"
+   # Save the output file
+    output_folder = "Output"
+    if not os.path.exists(output_folder):
+    	os.makedirs(output_folder)
+    x = f"{output_folder}/{row.cells[0].text}.docx"
     doc.save(x)
     return x
+
+
 
 
 def log_result(future):
