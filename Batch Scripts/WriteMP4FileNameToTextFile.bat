@@ -1,3 +1,8 @@
+@echo off
+mode con: cols=80 lines=8
+color 0A
+title Write MP4 filenames
+
 ::Written by Ahmad Cooper
 ::Software comes "as is", no warranty.
 ::Writes the current directory and the mp4 file names to a text file.
