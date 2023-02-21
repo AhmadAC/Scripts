@@ -7,6 +7,10 @@ from pptx import Presentation
 import pyperclip
 import re
 import os
+from RandomlyAddPDF2PDF import *
+from shuffle_2_pdf import *
+
+
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # If you don't change the directory, you can't run the script properly from a .bat file
 os.chdir(script_dir)
@@ -44,13 +48,17 @@ try:
 
     # Save the presentation
     prs.save(f"{FILENAME}_1{ext}")  
+    pdf = f"{FILENAME}_1.pdf"
 
     powerpoint = comtypes.client.CreateObject("Powerpoint.Application")
     powerpoint.Presentations.Open(os.path.abspath(f"{FILENAME}_1{ext}"))
-    powerpoint.ActivePresentation.SaveAs(os.path.abspath(f"{FILENAME}_1.pdf"), 
+    powerpoint.ActivePresentation.SaveAs(os.path.abspath(pdf), 
                                       32) # 32 is the PDF format code
     powerpoint.Quit()
     print(f"Successfully created {len(final)} FC slides")
+    shuffle_pdf(pdf)
+    add_pdfs_to_pdf(pdf)
+
 
 except FileNotFoundError:
     print(f"Could not find file: {FILENAME}")

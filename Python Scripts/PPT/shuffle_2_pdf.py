@@ -2,9 +2,12 @@ import pyperclip
 import PyPDF2
 import random
 import os
+import sys
+from RandomlyAddPDF2PDF import *
 
-def shuffle_pdf():
-    pdf_path = pyperclip.paste().strip('"')
+def shuffle_pdf(pdf_path=None):
+    if pdf_path is None:
+        pdf_path = pyperclip.paste().strip('"')
     pdf_file = open(pdf_path, 'rb')
     pdf_reader = PyPDF2.PdfFileReader(pdf_file)
     num_pages = pdf_reader.getNumPages()
@@ -23,3 +26,8 @@ def shuffle_pdf():
     pdf_file.close()
     return pdf_file_name
 
+if __name__ == '__main__':
+    pdf_path = None
+    if len(sys.argv) > 1:
+        pdf_path = sys.argv[1]
+    shuffle_pdf(pdf_path)
