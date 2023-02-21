@@ -7,6 +7,7 @@ $ cat .gitignore
 /Python Scripts/__pycache__/
 /HTML Scripts/Ignore/
 /.git/
+/.vscode/
 #Files
 /Python Scripts/pw.py
 /Python Scripts/tempCodeRunnerFile.py
