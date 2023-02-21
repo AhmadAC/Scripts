@@ -5,7 +5,10 @@ import collections.abc
 from pptx import Presentation
 import pyperclip
 import re
-
+import os
+script_dir = os.path.dirname(os.path.abspath(__file__))
+# If you don't change the directory, you can't run the script properly from a .bat file
+os.chdir(script_dir)
 # 
 clipboard = pyperclip.paste()
 words = re.split(',|\n', clipboard)
