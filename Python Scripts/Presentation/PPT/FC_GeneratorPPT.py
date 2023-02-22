@@ -19,7 +19,7 @@ FILENAME = "PyFC"
 ext = ".pptx"
 try:
     # Try to open an existing PowerPoint presentation or create a new one
-    prs = Presentation(f"{FILENAME}{ext}")
+    prs = Presentation(f"Template/{FILENAME}{ext}")
 
     # Get the custom layout by ID
     custom_layout = prs.slide_layouts.get_by_name('3')
@@ -41,9 +41,9 @@ try:
         slide.name = str(final[i])
 
     # Save the presentation
-    prs.save(f"{FILENAME}_1{ext}")
+    prs.save(f"Output/{FILENAME}_1{ext}")
     print(f"Successfully created {len(final)} FC slides")
-
+    os.startfile(f"{script_dir}/Output")
 except FileNotFoundError:
     print(f"Could not find file: {FILENAME}")
 except Exception as e:

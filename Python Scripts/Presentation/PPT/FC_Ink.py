@@ -16,7 +16,7 @@ sys.path.append(f"{parent_dir}/PDF")
 from RandomlyAddPDF2PDF import *        
 from shuffle_2_pdf import *
 
-
+os.makedirs("Output", exist_ok=True)
 clipboard = pyperclip.paste()
 words = re.split(',|\n', clipboard)
 final = [word.strip() for word in words if word.strip()]
