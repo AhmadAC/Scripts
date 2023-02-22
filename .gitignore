@@ -3,13 +3,15 @@ $ cat .gitignore
 #ignore file: /FILE.FILE
 
 #Folders
-/Python Scripts/Ignore - Not Uploaded/
-/Python Scripts/__pycache__/
-/HTML Scripts/Ignore/
-/.git/
-/.vscode/
-#Files
-/Python Scripts/pw.py
-/Python Scripts/tempCodeRunnerFile.py
-/Pull Github Repo.bat
-/Push Github Repo.bat
+
+**/__pycache__/
+**/Ignore/
+**/.git/
+**/.vscode/
+**/Output/
+
+# Files
+**/pw.py
+**/tempCodeRunnerFile.py
+**/Pull Github Repo.bat
+**/Push Github Repo.bat

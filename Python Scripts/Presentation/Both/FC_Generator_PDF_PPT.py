@@ -1,5 +1,6 @@
 # Written by Ahmad Cooper
 # Generates flashcards in PowerPoint from a word list. You can copy the word list in CSV format or separated by new lines.
+# Saves as PPT and exports to PDF
 
 import collections.abc
 import comtypes.client
