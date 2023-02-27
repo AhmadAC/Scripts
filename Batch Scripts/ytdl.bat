@@ -14,6 +14,6 @@ for /f "delims=" %%b in ('powershell -Command "$env:clipboard -replace '%regex%'
 
 
 @REM Download video using youtube-dl
-"C:\Users\ahmad\Documents\YoutubeDLer\YTDL\youtube-dl.exe" --write-sub --sub-lang en -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" %url%
+"C:\Users\%username%\Documents\YoutubeDLer\YTDL\youtube-dl.exe" --write-sub --sub-lang en -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" %url%
 
 
