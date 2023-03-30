@@ -8,3 +8,6 @@ title Run Python Script
 
 @REM Alternatively, you can use the full path of the python script.
 @REM @py.exe "%userprofile%\...\...\NAME_OF_PYTHON_FILE.py"
+
+@REM Can also run like this:
+@REM start /min cmd /k py "%~dp0\NAME_OF_PYTHON_FILE.py"
